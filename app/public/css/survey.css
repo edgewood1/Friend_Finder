@@ -1,0 +1,19 @@
+body {
+	background: pink;
+	 
+
+}
+
+label {
+	font-size: 20pt;
+	font-color: black;
+}
+
+.input-field {
+	width: 30%; 
+}
+
+section {
+	margin-left: 5%;
+	margin-top: 5%;
+}
