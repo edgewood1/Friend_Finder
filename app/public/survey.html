@@ -41,6 +41,23 @@
 
 <!-- <p id="form"><p>
  -->
+
+
+  <div class="row">
+    <form class="col s12">
+      <div class="row">
+        <div class="input-field col s6">
+          <input placeholder="Placeholder" id="name1" type="text" class="validate">
+          <label for="name1">Name</label>
+        </div>
+        <div class="input-field col s6">
+          <input id="email1" type="text" class="validate">
+          <label for="email1">Email</label>
+        </div>
+      </div>
+    </form>
+  </div>
+</br>
  
   <div class="input-field" >
     <select id="1">
@@ -93,7 +110,7 @@
       <option value="5">5 (Strongly Agree)</option>
     </select>
     <label>4. I like to play video games</label>
-  </div>
+<!--   </div>
     <div class="input-field">
     <select id="5">
    
@@ -108,7 +125,7 @@
     <label>5. I go for long bike rides on a sunday afternoon</label>
   </div>
     <div class="input-field">
-    <select>
+    <select id="6">
    
       <option value="" disabled selected>Choose your option</option>
 
@@ -120,17 +137,92 @@
     </select>
     <label>6. I like to listen to podcasts </label>
   </div>
+      <div class="input-field">
+    <select id="7">
+   
+      <option value="" disabled selected>Choose your option</option>
+
+      <option value="1">1 Strongly Disagree</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5 (Strongly Agree)</option>
+    </select>
+    <label>7. I love watching sports on TV </label>
+  </div>
+      <div class="input-field">
+    <select id="8">
+   
+      <option value="" disabled selected>Choose your option</option>
+
+      <option value="1">1 Strongly Disagree</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5 (Strongly Agree)</option>
+    </select>
+    <label>8. I like foraging through the backcountry with bare essentials </label>
+  </div>
+      <div class="input-field">
+    <select id="9">
+   
+      <option value="" disabled selected>Choose your option</option>
+
+      <option value="1">1 Strongly Disagree</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5 (Strongly Agree)</option>
+    </select>
+    <label>9. I have no problem with the awkward learning curve associated with learning how to formal dance or play an instrument </label>
+  </div>
+      <div class="input-field">
+    <select id="10">
+   
+      <option value="" disabled selected>Choose your option</option>
+
+      <option value="1">1 Strongly Disagree</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5 (Strongly Agree)</option>
+    </select>
+    <label>10. I like to speculate about the obtuse metaphysics of the fictional worlds I read about </label>
+  </div> -->
 <!-- submit button  -->
 
-    <button class="btn waves-effect waves-light" type="submit" name="action">Submit
-    <i class="material-icons right">send</i>
-  </button>
+    <button data-target="modal1" class="btn">Submit </button>
+    <h2 id="warn"></h2>
 
-  <br>
 
-  <p> Your Response: <span id="here"></span> </p> 
+<!-- class="btn waves-effect waves-light".  type="submit" name="action" submit.     <i class="material-icons right">send</i>-->
+ 
 
 </section>
+
+
+<!-- modal   -->
+
+<div class="container"> 
+
+  <!-- Modal Trigger -->
+  <!-- <a class="waves-effect waves-light btn" href="#modal1">Modal</a> -->
+
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4>Your Match</h4>
+      <p>name:<span id="name"></span></p>
+      <p>email:<span id="email"> </span></p>
+      <p>data:<span id="data"></span></p>
+    </div>
+    <div class="modal-footer">
+      <a href="#" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>
+  </div>
+
+</div>
+
 
     <!--         <br>
             <label>Browser Select</label>
