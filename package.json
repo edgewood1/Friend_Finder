@@ -21,5 +21,8 @@
     "express": "^4.15.2",
     "materialize-css": "^0.98.2",
     "path": "^0.12.7"
+  }, 
+  "scripts": {
+    "start": "node server.js"
   }
 }
