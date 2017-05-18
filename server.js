@@ -17,30 +17,16 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
 // Data
 // ===========================================================
-var data = [{
-  name: "Yoda",
-  email: "Jedi Master",
-  data: [1, 2, 3, 4]
-}];
+
+ var data=require("./app/data/friends.js");
  
-
-// Create one more data entry for the character Obi Wan Kenobi.
-// Enter any values you like for the parameters following the same format as the Yoda and Darth Maul character
-//
-
-// YOUR CODE GOES HERE
-
-//
-
-// Routes
-// ===========================================================
-// app.get("/", function(req, res) {
-//   res.send("Welcome to the Star Wars Pages!ddddddd");
-// });
 
 //route to the home page...
 
 var newcharacter;
+
+// routing html ....
+
 
 app.use(express.static(path.join(__dirname, 'app/public')));
 
@@ -54,6 +40,10 @@ app.use("/node_modules", express.static('node_modules'));
  app.get("/survey", function(req, res) {
    res.sendFile(path.join(__dirname, "app/public/survey.html"));
  });
+
+ 
+
+// routing api / survey
 
 app.get("/api/survey", function(req, res) {
   res.json(data);
@@ -69,6 +59,15 @@ app.post("/api/survey", function(req, res) {
  res.json(data);
 });
 
+
+// non-useful importing....
+
+// var files=require('./app/routing/htmlRoutes.js');
+ 
+// var api=require('./app/routing/apiRoutes.js');
+ 
+// files.files();
+// api.api();
  
 
 // Create a new Express route that leads users to the new Obi Wan Kenobi Data

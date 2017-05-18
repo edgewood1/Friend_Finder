@@ -41,24 +41,33 @@
 
 <!-- <p id="form"><p>
  -->
+<!--  ..........................................name / image -->
 
 
   <div class="row">
     <form class="col s12">
       <div class="row">
         <div class="input-field col s6">
-          <input placeholder="Placeholder" id="name1" type="text" class="validate">
+          <input id="name1" type="text" class="validate">
           <label for="name1">Name</label>
         </div>
         <div class="input-field col s6">
           <input id="email1" type="text" class="validate">
-          <label for="email1">Email</label>
+          <label for="email1">Link to Photo Image</label>
         </div>
       </div>
     </form>
   </div>
-</br>
- 
+<br>
+
+                                 <!-- warning -->
+ <h5 id="warn"></h5>
+ <br>
+
+
+  <!-- ...................................data inputs -->
+
+  
   <div class="input-field" >
     <select id="1">
    
@@ -72,6 +81,7 @@
     </select>
     <label>1. I like to socialize on Saturday nights</label>
   </div>
+  <br>
   <div class="input-field">
     <select id ="2">
    
@@ -85,6 +95,7 @@
     </select>
     <label>2. I like to read novels</label>
   </div>
+  <br>
     <div class="input-field" >
     <select id="3">
    
@@ -98,6 +109,7 @@
     </select>
     <label>3. I like to watch movies</label>
   </div>
+  <br>
     <div class="input-field">
     <select id ="4">
    
@@ -111,6 +123,7 @@
     </select>
     <label>4. I like to play video games</label>
 <!--   </div>
+  <br>
     <div class="input-field">
     <select id="5">
    
@@ -124,6 +137,7 @@
     </select>
     <label>5. I go for long bike rides on a sunday afternoon</label>
   </div>
+  <br>
     <div class="input-field">
     <select id="6">
    
@@ -137,6 +151,7 @@
     </select>
     <label>6. I like to listen to podcasts </label>
   </div>
+  <br>
       <div class="input-field">
     <select id="7">
    
@@ -150,6 +165,7 @@
     </select>
     <label>7. I love watching sports on TV </label>
   </div>
+  <br>
       <div class="input-field">
     <select id="8">
    
@@ -163,6 +179,7 @@
     </select>
     <label>8. I like foraging through the backcountry with bare essentials </label>
   </div>
+  <br>
       <div class="input-field">
     <select id="9">
    
@@ -176,6 +193,7 @@
     </select>
     <label>9. I have no problem with the awkward learning curve associated with learning how to formal dance or play an instrument </label>
   </div>
+  <br>
       <div class="input-field">
     <select id="10">
    
@@ -192,7 +210,7 @@
 <!-- submit button  -->
 
     <button data-target="modal1" class="btn">Submit </button>
-    <h2 id="warn"></h2>
+    
 
 
 <!-- class="btn waves-effect waves-light".  type="submit" name="action" submit.     <i class="material-icons right">send</i>-->
@@ -213,8 +231,8 @@
     <div class="modal-content">
       <h4>Your Match</h4>
       <p>name:<span id="name"></span></p>
-      <p>email:<span id="email"> </span></p>
-      <p>data:<span id="data"></span></p>
+      <span id="image"></span> 
+     
     </div>
     <div class="modal-footer">
       <a href="#" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>

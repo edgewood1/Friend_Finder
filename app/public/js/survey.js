@@ -1,9 +1,13 @@
 
 
 var data=[];
-var e=[];
+var differences=[];
 var newSurvey= {};
 var d=0;
+var c=0;
+var lowest=0;
+var nextLowest=0;
+ 
   
   $(document).ready(function() {
 
@@ -11,15 +15,17 @@ var d=0;
   	//this enables the dropdown menus
     $('select').material_select();
   	//this enables the modal
-  
-   $('.modal').modal();
-// -------------------------------------- button pressed, object created and posted. 
+ 
+  		 $('.modal').modal();
+
+
+// -------------------------------------- submit button pressed, object created and posted. 
 
 $("button").on("click", function(event) {
 
  
       event.preventDefault();
-
+      data=[]
       // Here we grab the dropdown data
       for (var i=1; i<5; i++) {
       	data1=$("#"+i).val();
@@ -51,7 +57,7 @@ $("button").on("click", function(event) {
 
           // Error
           else {
-            alert("Sorry you are on the wait list");
+            alert("Sorry you weren't entered.");
           }
 
           // Clear the form when submitting
@@ -75,49 +81,57 @@ $.get("/api/survey", function(data) {
 	 
 
         // ------------------ > Pick out amatch
-
-console.log("main:" + parseInt(data[0].data))
-console.log("new: " +newSurvey.data);
+//
+console.log("main:" + (data[0].data))
+console.log("new: " + newSurvey.data);
 for (var a=0; a<(data.length-1); a++){ 
-	console.log("group " + a );
-	for (var b=0; b<4; b++){
-		// console.log(parseInt(data[a].data[b]));
-// console.log( parseInt(data[a].data[b]) + " - " + newSurvey.data[b] + " = ");
-		var c=parseInt(data[a].data[b])-(newSurvey.data[b]);
-		// console.log(c);
+	console.log("comparison with " + data[a].name );
+	for (var b=0; b<4; b++){ 
+		//Subtract old results from new results
+		c=parseInt(data[a].data[b])-(newSurvey.data[b]);
+		// Nuetralize the result
 		c=Math.abs(c);
-
-			// console.log(c);
+		console.log("subtraction " + b)
+		console.log(c)
+		// d is total difference
 		d=d+c;
-	
+	    // reset C for new round of sub
 		c=0;
 		// console.log(d);
 }
 
-e.push(d);
+//push total difference into "differences" array
+differences.push(d);
+//reset d for new round of subtractions
 d=0;
-console.log(e);
+//e is an array that contains results for each comparison
+console.log(differences);
 }
-
-var f=0;
-var g=0;
-var value = e[0];
-for (var i = 1; i < e.length; i++) {
-  if (e[i] < value) {
-    value = e[i];
-    f = i;
+// "lowest" will find the lowest value in the "differences" array
+ 
+//
+var value = differences[0];
+//loop through the e array
+for (var i = 1; i < differences.length; i++) {
+  if (differences[i] < value) {
+  	//if an item is less than value, then it becomes value, and f becomes the index for that value
+    value = differences[i];
+    lowest = i;
   }
-  else if (e[i]===value){
-  	g=i
+   // if an item is the same as the value, then it will become the second lowest number? 
+  else if (differences[i]===value){
+  	nextLowest=i
   }
 }
  
-console.log("This is the index: "+ f + " and then " +g);
+console.log("This is the index: "+ lowest + " and then " +nextLowest);
 
         				
  // var f=0;
  $.get("/api/survey", function(data) {
-          $("#name").text(data[f].name);
+ 	  
+          $("#name").text(data[lowest].name);
+          $("#image").html("<img src='"+ data[lowest].email + "'>"  )
       });
           // $("#email").text(data[f].email);
          
@@ -128,50 +142,6 @@ console.log("This is the index: "+ f + " and then " +g);
 }) /// ON CLICK FUNCTION CLOSES
 
 
-// list = [
-// {name: "john",
-//  email: "smith"}, 
-//  {name: "mary",
-// email: "doe"}
-// ];
-  
-// var hello;
-
-// var data=[];
-// $('button').on("click", function() {
-
-// var list ={};
-// list={
-// 	name: $("#name").val().trim(), 
-// 	email: $("#email").val().trim(),
-// 	data: []
-// };
-//     for (var i=1; i<6; i++){
-//     	hello=$("#"+i).val();
-//     	list.data.push(hello);
-//     	   }
-// console.log(list);
-// $('#here').text(list);
-
-
-
-// $.post("/api/survey", list)
-// .done(function(data) {
-// 	console.log(data);
-// }) //end done function.
-
-
-// var currentURL = window.location.origin;
-
-//         // The AJAX function uses the URL of our API to GET the data associated with it (initially set to localhost)
-//         $.ajax({url: currentURL + "/api/survey", method: "GET"})
-//             .done(function(data) {
-// 	$("#name").text(data[0].name);
-// 	$("#email").text(data[0].email); 
-//  });  
- 
-
-//   });//end of button function
 
 
 }); /// end of js
