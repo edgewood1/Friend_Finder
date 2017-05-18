@@ -133,7 +133,7 @@ console.log("This is the index: "+ lowest + " and then " +nextLowest);
           $("#name").text(data[lowest].name);
           $("#image").html("<img src='"+ data[lowest].email + "'>"  )
       });
-          // $("#email").text(data[f].email);
+          
          
    
  
