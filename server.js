@@ -5,7 +5,7 @@ var bodyParser = require("body-parser");
 var path = require("path");
 
 var app = express();
-var port = process.env.PORT || 3000;
+var PORT = process.env.PORT || 3000;
 
 
 
@@ -13,8 +13,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
-
-
+app.use(express.static(path.join(__dirname, 'app/public')));
+// app.use(express.static(path.join(__dirname, 'css')));
+app.use("/node_modules", express.static('node_modules'));
 // Data
 // ===========================================================
 
@@ -27,37 +28,41 @@ var newcharacter;
 
 // routing html ....
 
+require('./app/routing/apiRoutes.js')(app);
 
-app.use(express.static(path.join(__dirname, 'app/public')));
+require('./app/routing/htmlRoutes.js')(app);
 
-app.use("/node_modules", express.static('node_modules'));
 
- app.get("/", function(req, res) {
-  res.sendFile(path.join(__dirname, "app/public/home.html"));
- });
+// app.use(express.static(path.join(__dirname, 'app/public')));
 
- // route to the survey page... 
- app.get("/survey", function(req, res) {
-   res.sendFile(path.join(__dirname, "app/public/survey.html"));
- });
+// app.use("/node_modules", express.static('node_modules'));
+
+//  app.get("/", function(req, res) {
+//   res.sendFile(path.join(__dirname, "app/public/home.html"));
+//  });
+
+//  // route to the survey page... 
+//  app.get("/survey", function(req, res) {
+//    res.sendFile(path.join(__dirname, "app/public/survey.html"));
+//  });
 
  
 
 // routing api / survey
 
-app.get("/api/survey", function(req, res) {
-  res.json(data);
+// app.get("/api/survey", function(req, res) {
+//   res.json(data);
    
 
-});
+// });
 
-app.post("/api/survey", function(req, res) {
+// app.post("/api/survey", function(req, res) {
   
-   newcharacter = req.body;
-  data.push(newcharacter);
- console.log(newcharacter);
- res.json(data);
-});
+//    newcharacter = req.body;
+//   data.push(newcharacter);
+//  console.log(newcharacter);
+//  res.json(data);
+// });
 
 
 // non-useful importing....
@@ -81,7 +86,7 @@ app.post("/api/survey", function(req, res) {
  
 // Listener
 // ===========================================================
-app.listen(port, function() {
+app.listen(PORT, function() {
    
 });
 
