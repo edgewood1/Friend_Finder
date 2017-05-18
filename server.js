@@ -5,7 +5,7 @@ var bodyParser = require("body-parser");
 var path = require("path");
 
 var app = express();
-var PORT = 3000;
+var port = process.env.PORT || 3000;
 
 
 
@@ -81,8 +81,8 @@ app.post("/api/survey", function(req, res) {
  
 // Listener
 // ===========================================================
-app.listen(PORT, function() {
-  console.log("App listening on PORT " + PORT);
+app.listen(port, function() {
+   
 });
 
 
