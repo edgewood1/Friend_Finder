@@ -1,4 +1,4 @@
-exports.data = [{
+module.exports = [{
   name: "Yoda",
   email: "https://img.clipartfest.com/8d3f4eebde8d42f8350d7df1777f239f_star-wars-yoda-coloring-pages-star-wars-background-clipart-yoda_500-500.jpeg",
   data: [3, 3, 3, 3, 3, 3, 3, 3, 3, 3]

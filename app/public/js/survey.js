@@ -86,7 +86,7 @@ console.log("main:" + (data[0].data))
 console.log("new: " + newSurvey.data);
 for (var a=0; a<(data.length-1); a++){ 
 	console.log("comparison with " + data[a].name );
-	for (var b=0; b<4; b++){ 
+	for (var b=0; b<data.length; b++){ 
 		//Subtract old results from new results
 		c=parseInt(data[a].data[b])-(newSurvey.data[b]);
 		// Nuetralize the result
@@ -148,7 +148,6 @@ console.log("This is the index: "+ lowest + " and then " +nextLowest);
 
 
 		
-//        var element2 = $("<div>").addClass("input-field");
 //        var element3=$("<select>");
 //        var element4=$("<option>").attr({value: [""], id:'a'}).text('Choose your options');
 //        var element5=$('<option>').attr("value", "1").text('Option 1');

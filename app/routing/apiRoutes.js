@@ -1,6 +1,6 @@
 
 var data = require('../data/friends.js');
-
+console.log(data)
 module.exports =function (app) { 
 
  
